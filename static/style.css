@@ -1,0 +1,48 @@
+/* On screen: dark and quiet. On paper: bright, so the card is the thing you take outside. */
+:root { --bg:#0b0f24; --panel:#131a3a; --line:#26306b; --text:#e8ecff; --dim:#8a93c4; --lime:#b6ff3c; --pink:#ff3d8b; --paper:#fcfcfa; --ink:#16181d; }
+* { box-sizing: border-box; }
+body { margin: 0 auto; max-width: 1040px; padding: 0 24px 48px; background: var(--bg); color: var(--text);
+  font: 16px/1.5 "Segoe UI Variable", "Segoe UI", system-ui, sans-serif; color-scheme: dark; }
+button:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
+
+header { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--line); }
+h1 { font-size: 17px; font-weight: 600; margin: 0; }
+.right { display: flex; align-items: center; color: var(--dim); font-size: 13px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--dim); margin-right: 6px; }
+.dot.ready { background: var(--lime); box-shadow: 0 0 8px var(--lime); }
+.dot.bad { background: var(--pink); box-shadow: 0 0 8px var(--pink); }
+#notice { display: none; margin-top: 16px; padding: 10px 14px; border: 1px solid var(--pink); border-radius: 8px; color: #ffd0e4; font-size: 14px; }
+
+.layout { display: grid; grid-template-columns: 300px 1fr; gap: 40px; margin-top: 32px; align-items: start; }
+@media (max-width: 820px) { .layout { grid-template-columns: 1fr; } }
+.lede { margin: 0 0 24px; font-size: 20px; line-height: 1.35; font-weight: 600; }
+label { display: block; margin-bottom: 16px; font-size: 14px; color: var(--dim); }
+input, select { display: block; width: 100%; margin-top: 6px; padding: 10px 12px; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 10px; color: var(--text); font: inherit; }
+input:focus, select:focus { outline: none; border-color: var(--lime); box-shadow: 0 0 0 3px rgba(182,255,60,.15); }
+.go { width: 100%; padding: 12px; border: 0; border-radius: 10px; background: var(--lime); color: var(--ink); font: inherit; font-weight: 700; cursor: pointer; }
+.go:hover { box-shadow: 0 0 18px rgba(182,255,60,.35); }
+.go:disabled { opacity: .5; cursor: wait; box-shadow: none; }
+
+.hint { border: 1px dashed var(--line); border-radius: 6px; padding: 40px 44px; color: var(--dim); font-size: 18px; }
+.sheet { background: var(--paper); color: var(--ink); border-radius: 6px; padding: 40px 44px; font: 17px/1.6 Georgia, "Times New Roman", serif;
+  box-shadow: 0 0 0 1px rgba(182,255,60,.55), 0 0 48px rgba(182,255,60,.12); }
+.sheet h2 { font-size: 34px; line-height: 1.15; margin: 4px 0 8px; }
+.sheet h3 { font: 600 15px/1 "Segoe UI", sans-serif; margin: 26px 0 8px; padding-bottom: 6px; border-bottom: 1px solid #d8d8d2; }
+.sheet p { margin: 0; }
+.sheet .intro { font-style: italic; }
+.sheet .date, .sheet .foot { font: 13px "Segoe UI", sans-serif; color: #6b6e76; }
+.sheet .foot { margin-top: 28px; }
+.sheet ul { list-style: none; margin: 0; padding: 0; }
+.plain li { padding: 3px 0; }
+.plain li::before { content: "– "; }
+.checks li { display: flex; gap: 12px; align-items: flex-start; padding: 5px 0; }
+.checks li::before { content: ""; flex: none; width: 15px; height: 15px; margin-top: 6px; border: 1.5px solid var(--ink); border-radius: 3px; }
+.actions { margin-top: 20px; max-width: 260px; }
+
+@media print {
+  body { background: #fff; max-width: none; padding: 0; }
+  header, aside, #notice, .actions { display: none !important; }
+  .layout { display: block; margin: 0; }
+  .sheet { box-shadow: none; border-radius: 0; padding: 0; }
+}

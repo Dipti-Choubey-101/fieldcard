@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Field Card</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>Field Card</h1>
+    <span class="right"><i class="dot" id="dot"></i><span id="model"></span></span>
+  </header>
+  <div id="notice"></div>
+  <div class="layout">
+    <aside>
+      <p class="lede">Tell it where you are. Get one printed page, then put the phone away.</p>
+      <form id="form">
+        <label>Where are you
+          <input id="region" placeholder="City or area, e.g. Pune, India" required>
+        </label>
+        <label>Kind of place
+          <select id="place">
+            <option value="the streets of my neighborhood">Neighborhood streets</option>
+            <option value="a park or green space">Park or green space</option>
+            <option value="a forest or trail">Forest or trail</option>
+            <option value="a shore or riverbank">Shore or riverbank</option>
+            <option value="a backyard or garden">Backyard or garden</option>
+            <option value="a campus">Campus</option>
+          </select>
+        </label>
+        <label>Time you have
+          <select id="minutes">
+            <option value="15">15 minutes</option>
+            <option value="30" selected>30 minutes</option>
+            <option value="60">1 hour</option>
+            <option value="120">2 hours or more</option>
+          </select>
+        </label>
+        <label>Who's coming
+          <select id="who">
+            <option value="just me">Just me</option>
+            <option value="me and a friend">Me and a friend</option>
+            <option value="me and kids">Me and kids</option>
+            <option value="me and my dog">Me and my dog</option>
+          </select>
+        </label>
+        <label>Anything to know (optional)
+          <input id="note" placeholder="e.g. light rain, short walk only">
+        </label>
+        <button class="go" id="go">Make my card</button>
+      </form>
+    </aside>
+    <section id="preview" aria-live="polite"></section>
+  </div>
+  <script src="/static/script.js"></script>
+</body>
+</html>
